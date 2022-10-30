@@ -20,13 +20,13 @@ public class User {
     @Column(nullable = false, length = 55, unique = true)
     private String email;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = true,unique = true)
     private String encryptedPwd;
 
     @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true)
     private String userId;
 
     @Builder
@@ -38,4 +38,10 @@ public class User {
         this.encryptedPwd=encryptedPwd;
     }
 
+    public User update(String name, String email) {
+        this.name = name;
+        this.email = email;
+
+        return  this;
+    }
 }
